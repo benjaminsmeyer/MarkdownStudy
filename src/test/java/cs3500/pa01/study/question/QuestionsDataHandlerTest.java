@@ -69,9 +69,7 @@ class QuestionsDataHandlerTest {
     assertEquals(2, results.get("TOTAL HARD QUESTIONS ANSWERED"));
     assertEquals(2, results.get("TOTAL QUESTIONS CHANGED FROM EASY TO HARD"));
     assertEquals(2, results.get("TOTAL QUESTIONS CHANGED FROM HARD TO EASY"));
-    System.out.println(results.get("UPDATED TOTAL NUMBER OF HARD QUESTIONS"));
     assertEquals(2, results.get("UPDATED TOTAL NUMBER OF HARD QUESTIONS"));
-    System.out.println(results.get("UPDATED TOTAL NUMBER OF EASY QUESTIONS"));
     assertEquals(26, results.get("UPDATED TOTAL NUMBER OF EASY QUESTIONS"));
   }
 
