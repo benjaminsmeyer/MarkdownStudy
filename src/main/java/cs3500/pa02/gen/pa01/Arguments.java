@@ -46,6 +46,7 @@ public record Arguments(String dirPath, String sort, String outputPath) {
   /**
    * Returns the output path for the requested output directory.
    *
+   * @param extension the extension for the output path
    * @return string an output path for the requested output directory
    */
   public String getOutputPath(String extension) {
