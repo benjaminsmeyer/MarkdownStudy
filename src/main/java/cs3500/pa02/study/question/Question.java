@@ -83,7 +83,7 @@ public class Question {
    * @param text the string of text
    * @return true if the text contains a question and an answer, false if not.
    */
-  public static boolean checkForQuestion(String text) {
+  public static boolean checkForQuestionContainsColons(String text) {
     return text.contains(":::");
   }
 
@@ -111,7 +111,7 @@ public class Question {
   public static boolean checkForValidQuestion(String text) {
     String[] splitText = text.split(":::");
     boolean correctLength = checkQuestionLength(splitText);
-    if (checkForQuestion(text)) {
+    if (checkForQuestionContainsColons(text)) {
       for (String str : splitText) {
         if (str.trim().length() == 0) {
           return false;

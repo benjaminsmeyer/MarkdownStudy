@@ -38,11 +38,11 @@ class QuestionTest {
    */
   @Test
   void checkForQuestionTest() {
-    assertFalse(Question.checkForQuestion("hello"));
-    assertTrue(Question.checkForQuestion("you:::too"));
-    assertTrue(Question.checkForQuestion("you:::too:::world"));
-    assertTrue(Question.checkForQuestion("you:::too:::hard"));
-    assertTrue(Question.checkForQuestion("you:::too:::EASY"));
+    assertFalse(Question.checkForQuestionContainsColons("hello"));
+    assertTrue(Question.checkForQuestionContainsColons("you:::too"));
+    assertTrue(Question.checkForQuestionContainsColons("you:::too:::world"));
+    assertTrue(Question.checkForQuestionContainsColons("you:::too:::hard"));
+    assertTrue(Question.checkForQuestionContainsColons("you:::too:::EASY"));
   }
 
   /**

@@ -214,7 +214,7 @@ public class FileReader {
 
         String text = decideText(line, current, start, end, endBracketFound);
 
-        if (Question.checkForQuestion(text)) {
+        if (Question.checkForQuestionContainsColons(text)) {
           Question.addQuestion(text);
         } else {
           // Add a bullet point before the first bracketed phrase
@@ -288,7 +288,7 @@ public class FileReader {
 
     String text = decideText(line, current, start, end, endBracketFound);
 
-    if (Question.checkForQuestion(text)) {
+    if (Question.checkForQuestionContainsColons(text)) {
       Question.addQuestion(text);
     } else {
       // Add a bullet point before the first bracketed phrase
