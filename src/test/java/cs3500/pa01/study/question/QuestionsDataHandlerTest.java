@@ -35,7 +35,8 @@ class QuestionsDataHandlerTest {
    */
   @Test
   void getRandomQuestionsTest() {
-    assertTrue(dataHandlerOne.getRandomQuestions().toString().contains("Which continent is known as the \"Roof of the World\"?:::Asia.:::EASY"));
+    assertTrue(dataHandlerOne.getRandomQuestions().toString().contains("Which continent is known "
+        + "as the \"Roof of the World\"?:::Asia.:::EASY"));
     assertFalse(dataHandlerOne.getRandomQuestions().toString().contains("YOLO"));
   }
 

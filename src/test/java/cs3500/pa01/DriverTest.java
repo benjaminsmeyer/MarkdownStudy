@@ -116,7 +116,8 @@ class DriverTest {
     assertEquals((arrayExpectedOutput + "\n" + vectorExpectedOutput).trim(),
         FileReader.readFromFile(new File("src/test/outputResults/works.md")));
 
-    String output = FileReader.readFromFile(new File("src/test/questions/questionsfordrivergen.sr"));
+    String output = FileReader.readFromFile(new File("src/test/questions"
+        + "/questionsfordrivergen.sr"));
     assertEquals(questionExpectedOutput, output);
 
     String[] badFinalArgs = new String[3];
@@ -142,9 +143,12 @@ class DriverTest {
     String[] args = new String[0];
     Driver.main(args);
 
-    String expectedOne = FileReader.readFromFile(new File("src/test/questions/expecteddriverquestionsone.sr"));
-    String expectedTwo = FileReader.readFromFile(new File("src/test/questions/expecteddriverquestionstwo.sr"));
-    String actual = FileReader.readFromFile(new File("src/test/questions/questionsfordriverstudy.sr"));
+    String expectedOne = FileReader.readFromFile(new File("src/test/questions/"
+        + "expecteddriverquestionsone.sr"));
+    String expectedTwo = FileReader.readFromFile(new File("src/test/questio"
+        + "ns/expecteddriverquestionstwo.sr"));
+    String actual = FileReader.readFromFile(new File("src/test/questions/"
+        + "questionsfordriverstudy.sr"));
 
     if (expectedOne.equals(actual)) {
       assertEquals(expectedOne, actual);

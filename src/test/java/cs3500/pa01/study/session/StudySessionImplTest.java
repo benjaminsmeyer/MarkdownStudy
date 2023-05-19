@@ -3,10 +3,10 @@ package cs3500.pa01.study.session;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import cs3500.pa01.gen.FileReader;
 import cs3500.pa01.study.question.Question;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import cs3500.pa01.gen.FileReader;
 import java.io.File;
 import java.io.PrintStream;
 import java.util.Random;
@@ -22,7 +22,7 @@ class StudySessionImplTest {
    * Runs before each question to set up their testing variables
    */
   @BeforeEach
-  void setup () {
+  void setup() {
     Question.resetAllQuestionsList();
   }
 
@@ -43,9 +43,12 @@ class StudySessionImplTest {
     StudySession test = new StudySessionImpl(filePath, amountQuestions, random, inputStream, ps);
     test.startSession();
 
-    String expectedOne = FileReader.readFromFile(new File("src/test/questions/expectedsessionquestionsone.sr"));
-    String expectedTwo = FileReader.readFromFile(new File("src/test/questions/expectedsessionquestionstwo.sr"));
-    String actual = FileReader.readFromFile(new File("src/test/questions/sessionquestions.sr"));
+    String expectedOne = FileReader.readFromFile(new File("src/test/questions/"
+        + "expectedsessionquestionsone.sr"));
+    String expectedTwo = FileReader.readFromFile(new File("src/test/questions/"
+        + "expectedsessionquestionstwo.sr"));
+    String actual = FileReader.readFromFile(new File("src/test/questions/"
+        + "sessionquestions.sr"));
 
     if (expectedOne.equals(actual)) {
       assertEquals(expectedOne, actual);
