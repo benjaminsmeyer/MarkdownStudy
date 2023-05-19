@@ -10,7 +10,7 @@ checkstyle {
 }
 
 application {
-    mainClass = "cs3500.template.code.Main"
+    mainClass = "cs3500.pa01.Driver"
 }
 
 //Jacoco for code coverage
