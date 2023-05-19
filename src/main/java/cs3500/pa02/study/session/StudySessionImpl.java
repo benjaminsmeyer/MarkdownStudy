@@ -129,7 +129,7 @@ public class StudySessionImpl implements StudySession {
   private void invalidResponse() {
     String invalidResponse = "Invalid response.\n"
         + "Asking the question again.\n"
-        + "If you want to exit, answer with exit or the number 5.";
+        + "If you want to exit, answer with exit or the number 4.";
     user.sendMessageInRed(invalidResponse);
   }
 

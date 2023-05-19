@@ -35,7 +35,7 @@ public class StudyUser implements User {
     try {
       result = scanner.nextLine();
     } catch (NoSuchElementException e) {
-      System.err.println("The line was not found.");
+      System.err.println("The response was not found.");
       result = null;
     }
     return result;
