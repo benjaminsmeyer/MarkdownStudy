@@ -21,7 +21,8 @@ public class Question {
   public Question(String text) {
     String[] textSplit = text.split(":::");
     if (!(textSplit.length == 2 || textSplit.length == 3)) {
-      throw new IllegalArgumentException("Invalid argument. It must be a question and an answer in the following format: question:::answer OR question:::answer:::mark.");
+      throw new IllegalArgumentException("Invalid argument. It must be a question and an "
+          + "answer in the following format: question:::answer OR question:::answer:::mark.");
     }
     question = textSplit[0].trim();
     answer = textSplit[1].trim();

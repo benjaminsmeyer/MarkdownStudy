@@ -184,14 +184,14 @@ public class StudySessionImpl implements StudySession {
    */
   private boolean checkExit() {
     String checkExit = "\nAre you sure you want to exit?\n"
-      + "Respond with Y if yes, N if no.\n"
-      + "If you say yes, the session will end and the results will be sent to you.\n"
-      + "If you say no, the study session will continue.\n";
+        + "Respond with Y if yes, N if no.\n"
+        + "If you say yes, the session will end and the results will be sent to you.\n"
+        + "If you say no, the study session will continue.\n";
     String response;
     do {
       user.sendMessageInRed(checkExit);
       response = user.askUser("Respond here: ");
-    } while (!responseEquals(response,"Y", "N"));
+    } while (!responseEquals(response, "Y", "N"));
 
     return responseEquals(response, "N");
   }
@@ -304,7 +304,7 @@ public class StudySessionImpl implements StudySession {
    */
   private int amountQuestions() {
     String questions = user.askUser("\nHow many questions (out of the amount available) "
-       + "would you like to receive?: ");
+        + "would you like to receive?: ");
     int amount = parseResponse(questions);
     if (amount > -1) {
       return amount;
@@ -316,6 +316,7 @@ public class StudySessionImpl implements StudySession {
    * Parses the integer given from the input.
    * If it fails to parse, it returns a -1.
    *
+   * @param input the string input
    * @return a string converted to an integer
    */
   public static int parseResponse(String input) throws NumberFormatException {
@@ -334,7 +335,8 @@ public class StudySessionImpl implements StudySession {
    * @return the random class
    */
   private Random randomSeed() {
-    String setSeed = user.askUser("\nDo you want a specific random seed for your shuffling of questions?"
+    String setSeed = user.askUser("\nDo you want a specific random seed"
+        + " for your shuffling of questions?"
         + "\n(If yes, respond with a seed number. If not, respond with a no.):");
     int seed = parseResponse(setSeed);
     if (seed > 0) {

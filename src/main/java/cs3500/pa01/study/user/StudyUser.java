@@ -1,9 +1,9 @@
 package cs3500.pa01.study.user;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.io.InputStream;
 
 /**
  * User class for the questions and responses
@@ -43,6 +43,8 @@ public class StudyUser implements User {
 
   /**
    * Send a user a message
+   *
+   * @param message the message for user
    */
   public void sendMessage(String message) {
     System.out.println("\n" + message.trim());
@@ -50,8 +52,10 @@ public class StudyUser implements User {
 
   /**
    * Send a user a message in red
+   *
+   * @param message the message for user
    */
   public void sendMessageInRed(String message) {
-    System.err.println("\n"+ message.trim());
+    System.err.println("\n" + message.trim());
   }
 }

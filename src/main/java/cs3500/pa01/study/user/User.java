@@ -14,11 +14,15 @@ public interface User {
 
   /**
    * Send a user a message
+   *
+   * @param message the message for user
    */
   public void sendMessage(String message);
 
   /**
    * Send a user a message in red
+   *
+   * @param message the message for user
    */
   public void sendMessageInRed(String message);
 }

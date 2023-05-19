@@ -100,6 +100,7 @@ public class QuestionsDataHandler {
    * Counts the question when answered.
    *
    * @param question the question that was answered
+   * @param mark the mark for the question
    */
   public void questionAnswered(Question question, Question.Mark mark) {
     totalQuestionsAnswered++;
@@ -140,6 +141,7 @@ public class QuestionsDataHandler {
 
   /**
    * Adds the results to the hash map with their respective names
+   *
    * @return a Map with the final results
    */
   private Map<String, Integer>  addResults() {
