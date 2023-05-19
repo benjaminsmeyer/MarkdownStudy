@@ -30,7 +30,7 @@ public class StudyUser implements User {
    * @return a string from the response
    */
   public String askUser(String question) {
-    printStream.println(question.trim());
+    printStream.println("\n" + question.trim());
     String result;
     try {
       result = scanner.nextLine();
