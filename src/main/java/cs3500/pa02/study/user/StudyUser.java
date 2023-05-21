@@ -47,7 +47,7 @@ public class StudyUser implements User {
    * @param message the message for user
    */
   public void sendMessage(String message) {
-    System.out.println("\n" + message.trim());
+    printStream.println("\n" + message.trim());
   }
 
   /**
