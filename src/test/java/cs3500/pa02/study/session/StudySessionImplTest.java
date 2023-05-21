@@ -86,7 +86,7 @@ class StudySessionImplTest {
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     PrintStream ps = new PrintStream(byteArrayOutputStream);
 
-    StudySession test = new StudySessionImpl(inputStream, ps);
+    StudySession testOne = new StudySessionImpl(inputStream, ps);
 
     ByteArrayOutputStream message = new ByteArrayOutputStream();
     PrintStream printStream = new PrintStream(message);
@@ -98,7 +98,7 @@ class StudySessionImplTest {
     byteArrayOutputStream = new ByteArrayOutputStream();
     ps = new PrintStream(byteArrayOutputStream);
 
-    test = new StudySessionImpl(inputStream, ps);
+    StudySession testTwo = new StudySessionImpl(inputStream, ps);
 
     message = new ByteArrayOutputStream();
     printStream = new PrintStream(message);
