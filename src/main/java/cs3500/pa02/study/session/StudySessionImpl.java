@@ -115,7 +115,7 @@ public class StudySessionImpl implements StudySession {
             index++;
           }
         } catch (IllegalArgumentException e) {
-          invalidResponse();
+          invalidNumberResponse();
         }
       }
     }
@@ -124,12 +124,12 @@ public class StudySessionImpl implements StudySession {
   }
 
   /**
-   * Sends a user a message saying that the response was invalid.
+   * Sends a user a message saying that the response was invalid when provided an invalid number input.
    */
-  private void invalidResponse() {
+  private void invalidNumberResponse() {
     String invalidResponse = "Invalid response.\n"
         + "Asking the question again.\n"
-        + "If you want to exit, answer with exit or the number 4.";
+        + "If you want to exit, answer with exit, an invalid input that is not a number, or the number 4.";
     user.sendMessageInRed(invalidResponse);
   }
 
