@@ -75,7 +75,7 @@ public class StudySessionImpl implements StudySession {
       session = new QuestionsDataHandler(filePath, amountQuestions, random);
       startStudy(session);
     } catch (Exception e) {
-      user.sendMessageInRed("Ending session.");
+      user.sendMessageInRed("Ending session...");
       endSession();
     }
   }
@@ -355,10 +355,10 @@ public class StudySessionImpl implements StudySession {
         + "extension for your study guide review\n"
         + "(e.g. folder/files/questions.sr). "
         + "If you do not have one,\nrespond with no:");
-    if (response.trim().equalsIgnoreCase("no")) {
-      user.sendMessageInRed("Ending session...");
-      user.sendMessageInRed("Farewell user.");
-      System.exit(0);
+    boolean checkResponseForNo = response.trim().equalsIgnoreCase("no");
+    if (checkResponseForNo) {
+      user.sendMessageInRed("No filepath was given.\nEnding session.");
+      System.exit(1);
     }
     return response;
   }

@@ -31,7 +31,7 @@ class StudySessionImplTest {
    */
   @Test
   void startSessionWithArgsTest() {
-    String userInput = "1\n2\n3\n-1\nn\ne\n-1\nn\n1\n4\n4\ny";
+    String userInput = "1\n2\n3\n-1\nn\ne\n-1\nn\n100\n1\n4\n4\ny";
 
     ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -90,6 +90,18 @@ class StudySessionImplTest {
 
     ByteArrayOutputStream message = new ByteArrayOutputStream();
     PrintStream printStream = new PrintStream(message);
+    System.setOut(printStream);
+
+    userInput = "src/test/questions/randomquestionsfile.sr\n-100\n-100";
+
+    inputStream = new ByteArrayInputStream(userInput.getBytes());
+    byteArrayOutputStream = new ByteArrayOutputStream();
+    ps = new PrintStream(byteArrayOutputStream);
+
+    test = new StudySessionImpl(inputStream, ps);
+
+    message = new ByteArrayOutputStream();
+    printStream = new PrintStream(message);
     System.setOut(printStream);
   }
 
