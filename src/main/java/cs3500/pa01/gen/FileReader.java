@@ -1,4 +1,4 @@
-package cs3500.pa02.gen.pa01;
+package cs3500.pa01.gen;
 
 import cs3500.pa02.study.model.Question;
 import java.io.File;

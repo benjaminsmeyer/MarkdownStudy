@@ -1,9 +1,7 @@
-package cs3500.pa02;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import cs3500.pa02.gen.pa01.FileReader;
+import cs3500.pa01.gen.FileReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -15,19 +13,11 @@ import org.junit.jupiter.api.Test;
 class DriverTest {
 
   /**
-   * Fake test
-   */
-  @Test
-  public void fakeTest() {
-    assertEquals(5, 5);
-    Driver drive = new Driver();
-  }
-
-  /**
    * Tests main for invalid arguments
    */
   @Test
   void testMainInvalidArgs() {
+    Driver drive = new Driver();
     String[] finalArgs = new String[10];
     assertThrows(IllegalArgumentException.class, () -> Driver.main(finalArgs));
     String[] secondFinalArgs = new String[2];

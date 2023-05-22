@@ -1,6 +1,6 @@
 package cs3500.pa02.study.model;
 
-import cs3500.pa02.gen.pa01.FileReader;
+import cs3500.pa01.gen.FileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

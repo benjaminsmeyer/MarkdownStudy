@@ -3,7 +3,7 @@ package cs3500.pa02.study.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import cs3500.pa02.gen.pa01.FileReader;
+import cs3500.pa01.gen.FileReader;
 import cs3500.pa02.study.model.Question;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

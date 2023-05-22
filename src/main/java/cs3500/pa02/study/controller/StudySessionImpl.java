@@ -1,6 +1,6 @@
 package cs3500.pa02.study.controller;
 
-import cs3500.pa02.gen.pa01.FileWriter;
+import cs3500.pa01.gen.FileWriter;
 import cs3500.pa02.study.model.Question;
 import cs3500.pa02.study.model.QuestionsDataHandler;
 import cs3500.pa02.study.viewer.StudyUser;

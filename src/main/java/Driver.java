@@ -1,8 +1,6 @@
-package cs3500.pa02;
-
-import cs3500.pa02.gen.pa01.Arguments;
-import cs3500.pa02.gen.pa01.FileWriter;
-import cs3500.pa02.gen.pa01.VisitFiles;
+import cs3500.pa01.gen.Arguments;
+import cs3500.pa01.gen.FileWriter;
+import cs3500.pa01.gen.VisitFiles;
 import cs3500.pa02.study.controller.StudySession;
 import cs3500.pa02.study.controller.StudySessionImpl;
 import java.io.IOException;

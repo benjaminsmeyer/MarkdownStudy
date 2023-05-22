@@ -1,4 +1,4 @@
-package cs3500.pa02.gen.pa01;
+package cs3500.pa01.gen;
 
 import java.io.File;
 
