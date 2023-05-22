@@ -1,4 +1,4 @@
-package cs3500.pa02.study.session;
+package cs3500.pa02.study.controller;
 
 /**
  * An interface for study session controller

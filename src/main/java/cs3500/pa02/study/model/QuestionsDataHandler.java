@@ -1,4 +1,4 @@
-package cs3500.pa02.study.question;
+package cs3500.pa02.study.model;
 
 import cs3500.pa02.gen.pa01.FileReader;
 import java.io.File;

@@ -1,10 +1,10 @@
-package cs3500.pa02.study.session;
+package cs3500.pa02.study.controller;
 
 import cs3500.pa02.gen.pa01.FileWriter;
-import cs3500.pa02.study.question.Question;
-import cs3500.pa02.study.question.QuestionsDataHandler;
-import cs3500.pa02.study.user.StudyUser;
-import cs3500.pa02.study.user.User;
+import cs3500.pa02.study.model.Question;
+import cs3500.pa02.study.model.QuestionsDataHandler;
+import cs3500.pa02.study.viewer.StudyUser;
+import cs3500.pa02.study.viewer.User;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package cs3500.pa02.study.session;
+package cs3500.pa02.study.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import cs3500.pa02.gen.pa01.FileReader;
-import cs3500.pa02.study.question.Question;
+import cs3500.pa02.study.model.Question;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;

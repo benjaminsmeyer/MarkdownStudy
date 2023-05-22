@@ -1,6 +1,6 @@
 package cs3500.pa02.gen.pa01;
 
-import cs3500.pa02.study.question.Question;
+import cs3500.pa02.study.model.Question;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package cs3500.pa02.study.question;
+package cs3500.pa02.study.model;
 
 import java.util.ArrayList;
 import java.util.List;

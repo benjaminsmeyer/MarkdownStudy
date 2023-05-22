@@ -1,4 +1,4 @@
-package cs3500.pa02.study.user;
+package cs3500.pa02.study.viewer;
 
 import java.io.InputStream;
 import java.io.PrintStream;
