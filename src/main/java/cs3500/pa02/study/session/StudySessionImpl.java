@@ -226,7 +226,7 @@ public class StudySessionImpl implements StudySession {
         + "If the amount of questions requested exceeds the total available questions,\n"
         + "we will ask all the questions, from hard to easy.\n\n"
         + "Follow the instructions provided when sent a question.\n"
-        + "When you want to exit, say exit, 4, -1, or provide an invalid response.\n";
+        + "When you want to exit, say exit, 4, -1, or provide an invalid non-integer response.\n";
     user.sendMessage(start);
   }
 
