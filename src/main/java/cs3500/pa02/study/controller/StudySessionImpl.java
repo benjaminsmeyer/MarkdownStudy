@@ -6,6 +6,7 @@ import cs3500.pa02.study.model.QuestionsDataHandler;
 import cs3500.pa02.study.viewer.StudyUser;
 import cs3500.pa02.study.viewer.User;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -19,13 +20,12 @@ import java.util.Random;
 public class StudySessionImpl implements StudySession {
 
   private User user;
-  private final String filePath;
-  private final Random random;
-  private final int amountQuestions;
+  private String filePath;
+  private Random random;
+  private int amountQuestions;
   private QuestionsDataHandler session;
   private Map<String, Integer> userQuestions;
-  private final InputStream inputStream;
-  private final PrintStream printStream;
+  private final boolean providedArgs;
 
   /**
    * Controls the study session with the requested input and print stream
@@ -35,30 +35,25 @@ public class StudySessionImpl implements StudySession {
    */
   public StudySessionImpl(InputStream inputStream, PrintStream printStream) {
     user = new StudyUser(inputStream, printStream);
-    welcomeNoArgs();
-    this.filePath = filePath();
-    this.amountQuestions = amountQuestions();
-    this.random = randomSeed();
-    this.inputStream = inputStream;
-    this.printStream = printStream;
+    providedArgs = false;
   }
 
   /**
    * Controls the study session with the input and print stream
    *
-   * @param filePath the file path that contains the questions
+   * @param filePath        the file path that contains the questions
    * @param amountQuestions the amount of questions wanted
-   * @param random the random seed for shuffling the questions
-   * @param inputStream the input stream for the user
-   * @param printStream the print stream for the user
+   * @param random          the random seed for shuffling the questions
+   * @param inputStream     the input stream for the user
+   * @param printStream     the print stream for the user
    */
   public StudySessionImpl(String filePath, int amountQuestions,
                           Random random, InputStream inputStream, PrintStream printStream) {
+    this.user = new StudyUser(inputStream, printStream);
     this.filePath = filePath;
     this.amountQuestions = amountQuestions;
     this.random = random;
-    this.inputStream = inputStream;
-    this.printStream = printStream;
+    this.providedArgs = true;
   }
 
   /**
@@ -66,18 +61,27 @@ public class StudySessionImpl implements StudySession {
    */
   @Override
   public void startSession() {
-    if (user == null) {
-      user = new StudyUser(inputStream, printStream);
-      welcomeWithArgs();
-    }
-    // START THE DATA HANDLER
-    getUserQuestions();
     try {
-      session = new QuestionsDataHandler(filePath, amountQuestions, random);
-      startStudy(session);
-    } catch (Exception e) {
+      if (providedArgs) {
+        welcomeWithArgs();
+      } else {
+        welcomeNoArgs();
+        filePath = filePath();
+        amountQuestions = amountQuestions();
+        random = randomSeed();
+      }
+      // START THE DATA HANDLER
+      getUserQuestions();
+      try {
+        session = new QuestionsDataHandler(filePath, amountQuestions, random);
+        startStudy(session);
+      } catch (Exception e) {
+        user.sendMessageInRed("Ending session...");
+        endSession();
+      }
+    } catch (FileNotFoundException e) {
+      user.sendMessageInRed("No filepath was given.");
       user.sendMessageInRed("Ending session...");
-      endSession();
     }
   }
 
@@ -363,8 +367,9 @@ public class StudySessionImpl implements StudySession {
    * Gets the file path
    *
    * @return the String file path
+   * @throws FileNotFoundException when the file path was not provided
    */
-  private String filePath() {
+  private String filePath() throws FileNotFoundException {
     String response;
     do {
       response = user.askUser("\nProvide a file path that has a .sr\n"
@@ -376,12 +381,13 @@ public class StudySessionImpl implements StudySession {
       boolean checkResponseForNo = response.equalsIgnoreCase("no");
 
       if (checkResponseForNo) {
-        user.sendMessageInRed("No filepath was given.\nEnding session.");
-        System.exit(0);
+        throw new FileNotFoundException("No filepath was provided.");
       }
 
       if (!validFilePath(response)) {
-        user.sendMessageInRed("Invalid file path.\nIf you do have a valid file path with a .sr extension, respond with a no.");
+        user.sendMessageInRed("Invalid file path."
+            + "\nIf you do have a valid file path with a .sr extension, "
+            + "respond with a no.");
       }
 
     } while (!validFilePath(response));

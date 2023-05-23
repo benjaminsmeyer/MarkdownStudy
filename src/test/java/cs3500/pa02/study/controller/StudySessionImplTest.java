@@ -80,13 +80,14 @@ class StudySessionImplTest {
    */
   @Test
   void constructorWithoutArgsTest() {
-    String userInput = "src/test/questions/questions.sr\n20\n1";
+    String userInput = "red.sr\nsrc/test/outputResults/works.md\ngreen\nsrc/test/questions/questions.sr\n20\n1";
 
     ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     PrintStream ps = new PrintStream(byteArrayOutputStream);
 
     StudySession testOne = new StudySessionImpl(inputStream, ps);
+    testOne.startSession();
 
     ByteArrayOutputStream message = new ByteArrayOutputStream();
     PrintStream printStream = new PrintStream(message);
@@ -99,6 +100,20 @@ class StudySessionImplTest {
     ps = new PrintStream(byteArrayOutputStream);
 
     StudySession testTwo = new StudySessionImpl(inputStream, ps);
+    testTwo.startSession();
+
+    message = new ByteArrayOutputStream();
+    printStream = new PrintStream(message);
+    System.setOut(printStream);
+
+    userInput = "no";
+
+    inputStream = new ByteArrayInputStream(userInput.getBytes());
+    byteArrayOutputStream = new ByteArrayOutputStream();
+    ps = new PrintStream(byteArrayOutputStream);
+
+    StudySession testThree = new StudySessionImpl(inputStream, ps);
+    testThree.startSession();
 
     message = new ByteArrayOutputStream();
     printStream = new PrintStream(message);
