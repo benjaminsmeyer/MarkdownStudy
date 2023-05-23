@@ -5,6 +5,7 @@ import cs3500.pa02.study.model.Question;
 import cs3500.pa02.study.model.QuestionsDataHandler;
 import cs3500.pa02.study.viewer.StudyUser;
 import cs3500.pa02.study.viewer.User;
+import java.io.File;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -348,20 +349,42 @@ public class StudySessionImpl implements StudySession {
   }
 
   /**
+   * Checks if the path is a valid file path
+   *
+   * @param path a string of the path
+   * @return true if the path exists, false otherwise.
+   */
+  private boolean validFilePath(String path) {
+    File file = new File(path);
+    return file.exists() && path.contains(".sr");
+  }
+
+  /**
    * Gets the file path
    *
    * @return the String file path
    */
   private String filePath() {
-    String response = user.askUser("\nProvide a file path that has a .sr\n"
-        + "extension for your study guide review\n"
-        + "(e.g. folder/files/questions.sr). "
-        + "If you do not have one,\nrespond with no:");
-    boolean checkResponseForNo = response.trim().equalsIgnoreCase("no");
-    if (checkResponseForNo) {
-      user.sendMessageInRed("No filepath was given.\nEnding session.");
-      System.exit(1);
-    }
+    String response;
+    do {
+      response = user.askUser("\nProvide a file path that has a .sr\n"
+          + "extension for your study guide review\n"
+          + "(e.g. folder/files/questions.sr). "
+          + "If you do not have one,\nrespond with no:");
+      response = response.trim();
+
+      boolean checkResponseForNo = response.equalsIgnoreCase("no");
+
+      if (checkResponseForNo) {
+        user.sendMessageInRed("No filepath was given.\nEnding session.");
+        System.exit(0);
+      }
+
+      if (!validFilePath(response)) {
+        user.sendMessageInRed("Invalid file path.\nIf you do have a valid file path with a .sr extension, respond with a no.");
+      }
+
+    } while (!validFilePath(response));
     return response;
   }
 
