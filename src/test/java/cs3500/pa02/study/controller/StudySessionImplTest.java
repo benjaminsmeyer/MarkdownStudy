@@ -80,7 +80,8 @@ class StudySessionImplTest {
    */
   @Test
   void constructorWithoutArgsTest() {
-    String userInput = "red.sr\nsrc/test/outputResults/works.md\ngreen\nsrc/test/questions/questions.sr\n20\n1";
+    String userInput = "red.sr\nsrc/test/outputResults/works.md\n"
+        + "green\nsrc/test/questions/questions.sr\n20\n1";
 
     ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
